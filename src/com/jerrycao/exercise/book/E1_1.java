@@ -6,19 +6,16 @@ package com.jerrycao.exercise.book;
 public class E1_1 {
     private static int[] getMax(int[] array,int k){
         int[] result = new int[k];
-        for (int i = 0; i < array.length; i++) {
-            if(i<k){
-                result[i] = array[i];
+        bubbleShort(array);
+        int j =0;
+        for (int i=array.length-1;i>=0;i--){
+            if(k>j){
+                result[j] = array[i];
             }
+            j++;
         }
-        bubbleShort(result);
-        if(k>array.length){
-            return null;
-        }else if(k==array.length){
-            return result;
-        }else {
-            return exchange(result,array);
-        }
+
+        return result;
     }
 
     private static void bubbleShort(int[] array){
@@ -33,24 +30,12 @@ public class E1_1 {
         }
     }
 
-    private static int[] exchange(int[] array_1,int[] array_2){
-        int max = array_1[array_1.length-1];
-        for (int i = 0; i < array_2.length; i++) {
-            if(max<array_2[i]){
-                for(int j = array_1.length;j>0;j--){
-                    array_1[j-1] = array_1[j];
-                    array_1[array_1.length] = array_2[i];
-                }
-            }
-        }
-        return array_1;
-    }
     public static void main(String[] args) {
         int[] a = {5,9,6,8,7,2,1};
         int k = 3;
         int[] result = getMax(a,k);
         for (int i = 0; i < result.length; i++) {
-            System.out.println(i);
+            System.out.println(result[i]);
         }
     }
 }
