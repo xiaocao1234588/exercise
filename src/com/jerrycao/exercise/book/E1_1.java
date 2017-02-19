@@ -32,7 +32,7 @@ public class E1_1 {
 
     public static void main(String[] args) {
         int[] a = {5,9,6,8,7,2,1};
-        int k = 3;
+        int k = 5;
         int[] result = getMax(a,k);
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
